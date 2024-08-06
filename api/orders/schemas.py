@@ -16,7 +16,7 @@ class OrderCreate(BaseModel):
         if value.minute != 0 and value.minute != 30:
             raise ValueError("The walk can start either at the beginning of the hour or at half")
 
-        if value.hour < 7 or value.hour > 22:
+        if value.hour < 7 or value.hour > 23:
             raise ValueError("The earliest walk can start no earlier than 7 a.m., and the latest no later than 11 p.m.")
 
         return value
