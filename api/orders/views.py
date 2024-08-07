@@ -30,7 +30,10 @@ async def create_order(
 ):
     order = await crud.create_order(session, order)
     if not order:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Couldn't find time for a walk")
+        return {
+            "status": 400,
+            "error": "Couldn't find time for a walk"
+        }
 
     return {
         "status": 200,
